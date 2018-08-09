@@ -1,0 +1,147 @@
+.nav-logo{
+	padding-top: 15px;
+	color: #FFFFFF;
+	font-family:"楷体";
+	padding-right: 30px;
+	text-decoration: none;
+	cursor: default;
+}
+.navbar-title{
+	overflow: hidden;
+	cursor: default;
+}
+
+.navbar{
+	overflow: hidden;
+	font-size: 0;
+}
+.navbar-title span{
+	padding: 0;
+	margin: 0;
+	display: block;
+	float: left;
+	font-size: 18px;
+}
+.navbar-title .span-change1{
+	transition: transform 0.5s;
+	transition-delay: 0.5s;
+}
+.navbar-title .span-change2{
+	transition: transform 0.6s;
+	transition-delay: 0.4s;
+}
+.navbar-title .span-change3{
+	transition: transform 0.7s;
+	transition-delay: 0.3s;
+}
+.navbar-title:hover .span-change1{
+	transform: rotate3d(0,1,0,720deg);
+	transition: transform 0.5s;
+	transition-delay: 0.5s;
+}
+.navbar-title:hover .span-change2{
+	transform: rotate3d(0,0,1,720deg);
+	transition: transform 0.4s;
+	transition-delay: 0.6s;
+}
+.navbar-title:hover .span-change3{
+	transform: rotate3d(1,0,0,720deg);
+	transition: transform 0.3s;
+	transition-delay: 0.7s;
+}
+.navbar-title::after{
+	content: "";
+	padding: 0;
+	margin: 0;
+	left: -281px;
+	top: 48px;
+	height: 2px;
+	width: 100%;
+	position: absolute;
+	background-color: #00B7FF;
+	opacity: 0.5;
+	max-width: 280px;
+	transition: left 1s linear;
+}
+.navbar-title:hover::after{
+	left: 0;
+	transition: left 1s linear;
+}
+.navbar-header{
+	overflow: hidden;
+}
+
+.nav-choose{
+	overflow: hidden;
+	max-width: 66px;
+}
+.navbar a{
+	color: #737373;
+}
+.navbar-right{
+	display: block;
+}
+.navbar-right :hover,
+.navbar-right :focus {
+	color: #C7DDEF;
+	background-color: rgba(0,0,0,0) !important;
+}
+.navbar-right ::before{
+	visibility: hidden;
+	content: '';
+	position: absolute;
+	width: 110%;
+	height: 2px;
+	padding: 0;
+	margin: 0;
+	top: 0;
+	left: 66px;
+	background-color: #FFFFFF;
+	transition: all 0.5s ease;
+}
+
+ .navbar-right ::after{
+ 	visibility: hidden;
+	content: '';
+	position: absolute;
+	width: 0px;
+	height: 2px;
+	padding: 0;
+	margin: 0;
+	top: 48px;
+	left: 0;
+	background-color: #FFFFFF;
+	transition: all 0.5s ease;
+}
+
+.navbar-right :hover ::after,
+.navbar-right :focus ::after,
+.navbar-right :visited ::after{
+	visibility: inherit;
+	content: '';
+	position: absolute;
+	width: 99%;
+	height: 2px;
+	padding: 0;
+	margin: 0;
+	top: 48px;
+	left: 0;
+	background-color: #FFFFFF;
+	transition: all 0.5s ease;
+}
+
+.navbar-right :hover ::before,
+.navbar-right :focus ::before,
+.navbar-right :visited ::before{
+	visibility: inherit;
+	content: '';
+	position: absolute;
+	width: 99%;
+	left: 0;
+	height: 2px;
+	padding: 0;
+	margin: 0;
+	top: 0;
+	background-color: #FFFFFF;
+	transition: all 0.5s ease;
+}

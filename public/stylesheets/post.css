@@ -1,0 +1,31 @@
+		html,body{
+			background-color: #D9EDF7;
+		}
+		.ipt-article {
+			width: 20%;
+		}
+		
+		.input-group {
+			margin-top: 10px;
+		}
+		
+		.addon-username {
+			padding-left: 27px;
+			padding-right: 27px;
+		}
+		
+		.get-btn {
+			height: 35px;
+			width: 70px;
+			border: 1px solid #122B40;
+			border-radius: 5%;
+			margin-top: 10px;
+			color: #FFFFFF;
+			font-size: 15px;
+			font-weight: 100;
+			font-family: "微软雅黑";
+			vertical-align: middle;
+			text-align: center;
+			padding-top: 5px;
+			cursor: pointer;
+		}

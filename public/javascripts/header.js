@@ -1,0 +1,23 @@
+$('.navbar-title').mouseenter(function(){
+	setTimeout(function(){
+		$('.span-change1').text("已经");
+	},600);
+	setTimeout(function(){
+		$('.span-change2').text("累死");
+	},700);
+	setTimeout(function(){
+		$('.span-change3').text("全栈");
+	},800);
+});
+
+$('.navbar-title').mouseleave(function(){
+	setTimeout(function(){
+		$('.span-change1').text("还在");
+	},600);
+	setTimeout(function(){
+		$('.span-change2').text("奋斗");
+	},500);
+	setTimeout(function(){
+		$('.span-change3').text("前端");
+	},400);
+});

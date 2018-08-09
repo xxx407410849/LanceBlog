@@ -1,0 +1,64 @@
+@media only screen and (min-width: 0px) and (max-width: 960px) {
+		body{
+		background-image: url(../images/phone-bg-reg.jpg) !important;
+		background-repeat: no-repeat;
+		background-size: 100%;
+	}
+}
+
+body{
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #eee;
+	background-image: url(../images/bg-reg.jpg);
+}
+
+.reg{
+	position: absolute;
+	top: 50%;
+	left: 55%;
+	-webkit-transform: translate(-50%,-50%);
+	-moz-transform: translate(-50%,50%);
+	transform: translate(-50%,-50%);
+}
+.navbar{
+	color: #C0A16B !important;
+}
+.navbar-nav>li a{
+	color: #1B6D85;
+}
+.navbar-title span{
+	font-size: 20px;
+	font-weight: 200;
+}
+.jumbotron{
+	background-color: rgba(0,0,0,0);
+}
+.label-reg{
+	text-align: start !important;
+	position: absolute;
+	margin-left: 30px;
+	z-index: 1;
+	padding: 0 !important;
+	margin-top: 14px;
+	color: #1B6D85;
+	transition: all 1s ease;
+	font-weight: 200;
+	font-size: 16px;
+	left : 0;
+}
+
+.form-control{
+	height: 46px;
+	background-color: #C7DDEF;
+}
+
+.reg-btn{
+	height: 40px;
+	background-color: #EE9572;
+}
+.icon-bar{
+	color: wheat;
+}
