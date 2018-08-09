@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" href="/stylesheets/Leditor.css" />
+	<link rel="stylesheet" href="/plugin/bootstrap.min.css" />
+	<link rel="stylesheet" href="/plugin/normalize.css" />
+	<link rel="stylesheet" href="/stylesheets/post.css" />
+	<body>
+		<div class="container">
+			<div class="clearfix">
+				<div class="ipt-article center-block">
+					<form class="form-horizontal" name="form-article"  enctype='multipart/form-data'>
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-addon addon-username">作者</div>
+									<% if(post && post.author){%>
+								<input class="form-control input-artcile-username" type="text" placeholder="作者名" name="username" value= <%= post.author%> />
+									<%} else {%>
+								<input class="form-control input-artcile-username" type="text" placeholder="作者名" name="username" />
+									<% } %>
+							</div>
+							<div class="input-group">
+									<% if(post && post.postImg){ %>
+									<input class="form-control input-artcile-postimg" type="hidden" name="null" />
+									<%} else {%>
+									<div class="input-group-addon">文章封面</div>
+									<input class="form-control input-artcile-postimg" type="file" name="postimg" /> 
+									<%}%>									
+							</div>
+							<div class="input-group">
+								<div class="input-group-addon">文章标题</div>
+									<% if(post && post.title){%>
+								<input class="form-control input-artcile-title" type="text" placeholder="标题" name="title" value = <%= post.title%> />
+									<%}else{%>
+									<input class="form-control input-artcile-title" type="text" placeholder="标题" name="title"/>
+									<%}%>
+							</div>
+							<div class="input-group">
+								<div class="input-group-addon">文章摘要</div>
+								<% if(post && post.abstract){%>
+								<input class="form-control input-artcile-abstract" type="text" placeholder="摘要" name="abstract" value = <%= post.abstract%> />
+								<%}else{%>
+								<input class="form-control input-artcile-abstract" type="text" placeholder="摘要" name="abstract" />
+								<%}%>
+
+							</div>
+							<div class="input-group">
+								<div class="input-group-addon">文章类型</div>
+								<% if(post && post.type){%>
+								<select class="form-control input-artcile-type" name="type" value=<%=post.type%> >
+								  <option>HTML5</option>
+								  <option>后台</option>
+								  <option>UI</option>
+								  <option>数据库</option>
+								  <option>网络</option>
+								  <option>架构</option>
+								  <option>开源项目</option>
+								  <option>工程技能</option>
+								  <option>编码</option>
+								  <option>诗与远方的田野</option>
+								  <option>小王子的玫瑰</option>
+								</select>
+								<%}else{%>
+								<select class="form-control input-artcile-type" name="type">
+								  <option>HTML5</option>
+								  <option>后台</option>
+								  <option>UI</option>
+								  <option>数据库</option>
+								  <option>网络</option>
+								  <option>架构</option>
+								  <option>开源项目</option>
+								  <option>工程技能</option>
+								  <option>编码</option>
+								  <option>诗与远方的田野</option>
+								  <option>小王子的玫瑰</option>
+								</select>
+								<%}%>
+							</div>
+							<div class="input-group input-tag">
+								<div class="input-group-addon">文章标签</div>
+								<% if(post && post.tag){ %>
+									<%post.tag.forEach(function(item){ %>
+										<input class="form-control input-artcile-tag" type="text" placeholder="标签" name="tag[]" value=<%= item %> />
+									<% }) %>
+								<% }else{ %>
+								<input class="form-control input-artcile-tag" type="text" placeholder="标签" name="tag[]" />
+								<input class="form-control input-artcile-tag" type="text" placeholder="标签" name="tag[]" />
+								<% } %>
+								<a onclick=addTag() style="cursor: pointer">添加更多</a>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="editor">
+					<div class="editor-nav">
+						<div class="menu-icon">
+							<i class="glyphicon-font" id="fontName"></i>
+						</div>
+						<div class="menu-icon">
+							<i class="glyphicon-bold" id="blod"></i>
+						</div>
+						<div class="menu-icon">
+							<i class="glyphicon-pencil" id="pencil"></i>
+						</div>
+						<div class="menu-icon">
+							<i class="glyphicon-italic" id="italic"></i>
+						</div>
+						<div class="menu-icon">
+							<i class="glyphicon-text-size" id="fontSize"></i>
+						</div>
+						<div class="menu-icon">
+							<i class="glyphicon-text-color" id="foreColor"></i>
+						</div>
+						<div class="menu-icon">
+							<i class="glyphicon-text-background" id="hiliteColor"></i>
+						</div>
+						<div class="menu-icon">
+							<i class="glyphicon-header" id="formatBlock"></i>
+						</div>
+						<div class="menu-icon">
+							<i class="glyphicon-console" id="code"></i>
+						</div>
+						<div class="menu-icon">
+							<i class="glyphicon-align-justify" id="align"></i>
+						</div>
+						<div class="menu-icon">
+							<i class="glyphicon-picture" id="pic"></i>
+						</div>
+						<div class="menu-icon">
+							<i class="glyphicon-link" id="link"></i>
+						</div>
+					</div>
+					<div class="editor-body" contenteditable="true">
+						<%if(post && post.article){%>
+							<%- post.article %>
+						<%}else{%>
+							<p>欢迎使用Leditor</p>
+						<%}%>
+					</div>
+				</div>
+				<div class="get-btn btn-primary center-block">
+					确认提交
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="/plugin/jquery-3.1.1.min.js" ></script>
+	<script type="text/javascript" src="/plugin/bootstrap.min.js" ></script>
+	<script type="text/javascript" src="/javascripts/Leditor.js"></script>
+	<script type="text/javascript">
+		var E = window.Leditor;
+		var editor = new E($('.editor-body'),$('.editor-nav'));
+		editor.creat();
+		function addTag(){
+			var $tagInput = $("<input class='form-control input-artcile-tag' type='text' placeholder='标签' name='tag[]' />");
+			var $a = $('.input-tag a');
+			console.log($a);
+			$('.input-tag').append($tagInput);
+			$('.input-tag').append($a);
+		};
+		$('.get-btn').on('click',function(e){
+			//动态提取前二段<p>
+			var $childElem = $('.editor-body').children();
+			var $abstractFlag = 0;
+			var $firstView = $("<div></div>");
+			var $abstract = "";
+			if($childElem != null){
+				for(var i = 0 ; i < $childElem.length ; i++){
+					if($abstractFlag == 2)break;
+					if($childElem[i].nodeName == "P"){
+						$($childElem[i].cloneNode(true)).appendTo($firstView);
+						$abstractFlag++;
+						$abstract = $abstract + $($childElem[i]).text() + " ";
+					}
+				}
+			}
+			var $firstViewHtml = $firstView.html().replace(/\u200b/gm, '');
+			if($('.input-artcile-abstract').val() == ""){
+				$('.input-artcile-abstract').val($abstract.slice(0,50));
+			}
+			var $postimg = $('.input-artcile-postimg')[0].files[0];
+			var formdata = new FormData(document.forms.namedItem("form-article"));
+			formdata.append("firstView",$firstViewHtml);
+			formdata.append("article",editor.body.html());
+			$.ajax({
+				type: "post",
+				url: "/post",
+				data: formdata,
+				contentType: false,
+				processData: false,
+				success: function(message) {
+					console.log(message);
+					if(message == "1")console.log('成功，准备跳转');
+				},
+				error: function(message) {
+					console.log('error:' + message);
+				}
+			});
+		});
+	</script>
+</html>

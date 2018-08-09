@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="/plugin/bootstrap.min.css" />
+		<link rel="stylesheet" href="/plugin/normalize.css" />
+		<link rel="stylesheet" href="/stylesheets/iconfont.css" />
+		<link rel="stylesheet" href="/stylesheets/header.css" />
+		<link rel="stylesheet" href="/stylesheets/blog.css" />
+		<link rel="stylesheet" href="/stylesheets/topnav.css">
+	</head>
+
+	<body>
+		<div class="topnav">
+			<div class="top-title">
+				<span>lANcEbLOG</span>
+			</div>
+			<div class="top-word">
+				<span>我这一路走来 扬起漫天尘埃</span>
+			</div>
+			<div class="top-btn-toggle">
+				<span><i class="icon-caidan iconfont"></i></span>
+			</div>
+			<div class="top-chooseList">
+				<ul class="articlelist-list">
+					<li class="articlelist-item articlelist-home">
+						<span><i class="iconfont icon-index"></i>首页</span>
+					</li>
+					<li class="articlelist-item articlelist-blog">
+						<span><i class="iconfont icon-boke"></i>博客</span>
+					</li>
+					<li class="articlelist-item articlelist-sort">
+						<span><i class="iconfont icon-leixing"></i>类型</span>
+					</li>
+					<li class="articlelist-item articlelist-timesort">
+						<span><i class="iconfont icon-guidang"></i>归档</span>
+					</li>
+					<li class="articlelist-item articlelist-tag">
+						<span><i class="iconfont icon-biaoqian"></i>标签</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="column text-container">
+			<div class="text-body">
+				<ul class="list-group">
+					<% posts.forEach(function(post){%>
+					<div class="list-item">
+						<li class="list-group-item text-body-item">
+							<div class="text-item-post" style="background-image: url(/lauchimg/<%= post.postImg %>);">
+							</div>
+							<h3><a href="/article?id=<%= post._id%>"><%= post.title%></a></h3>
+							<div class="text-item-firstsee">
+								<span><i class="iconfont icon-chakan"></i><br><%= post.abstract %></span>
+							</div>
+							<p class="info article-info">
+								<span><i class="iconfont icon-yonghu"></i><%= post.author %></span>
+								<span>|</span>
+								<span><i class="iconfont icon-riqi"></i> <%= post.publishTime %></span>
+								<span>|</span>
+								<span><i class="iconfont icon-redupaixu"></i><%= post.viewNum %></span>
+							</p>
+							<p class="info article-info">
+								<% post.tag.forEach(function(item){%>
+								<span><i class="iconfont icon-biaoqian"></i> <%= item %></span>
+								<%})%>
+							</p>
+						</li>
+						<div class="text-show-body">
+							<div class="text-box">
+								<%- post.firstView %>
+								<div class="article-show-btn" onclick="window.location.href ='./article?id=<%= post._id%>'">
+									阅读更多
+								</div>
+							</div>
+						</div>
+					</div>
+					<%})%>
+				</ul>
+				<div class="page-control">
+					<span class="page-number"><%=pageNum + 1-%></span>
+					<a class="next-page-number" href="/blog/<%=pageNum + 2%>"><%=pageNum + 2-%></a>
+					<span class="space">...</span>
+					<a class="last-page-number" href="/blog/<%=lastNum%>"><%=lastNum-%></a>
+					<a class="next-page" href="/blog/<%=pageNum + 2%>"><i>></i></a>
+				</div>
+			</div>
+		</div>
+		<div class="blog-copyright">
+			<p>© 2018 Lancelot</p>
+			<p> lANcEBlog 开源Blog - <a>github</a></p>
+			<p>蜀ICP备18014404号</p>
+		</div>
+		<div class="nav-list">
+			<div class="nav-tip-arrow">
+			</div>
+			<div class="welcome-ctn">
+				<p>lANcEbLOG</p>
+				<p>我这一路走来</p>
+				<p>扬起漫天尘埃</p>
+			</div>
+			<div class="articlelist-ctn">
+				<ul class="articlelist-list">
+					<li class="articlelist-item articlelist-home">
+						<span><i class="iconfont icon-index"></i>首页</span>
+					</li>
+					<li class="articlelist-item articlelist-blog">
+						<span><i class="iconfont icon-boke"></i>博客</span>
+					</li>
+					<li class="articlelist-item articlelist-sort">
+						<span><i class="iconfont icon-leixing"></i>类型</span>
+					</li>
+					<li class="articlelist-item articlelist-timesort">
+						<span><i class="iconfont icon-guidang"></i>归档</span>
+					</li>
+					<li class="articlelist-item articlelist-tag">
+						<span><i class="iconfont icon-biaoqian"></i>标签</span>
+					</li>
+				</ul>
+			</div>
+			<div class="icon-person-show">
+				<div>lANcElOT</div>
+			</div>
+			<div class="icon-ctn">
+				<div class="icon-body">
+					<span><i class="iconfont icon-github"></i>Git</span>
+					<span><i class="iconfont icon-qq"></i>QQ</span>
+					<span><i class="glyphicon glyphicon-envelope"></i>mail</span>
+					<span><i class="iconfont icon-tipoff"></i>lifeline</span>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="/plugin/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="/plugin/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/javascripts/blog.js"></script>
+
+</html>
