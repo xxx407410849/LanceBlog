@@ -1,57 +1,9 @@
-var $navList = $('.nav-list');
-var $topShowFlag = false;
-//------rightnavlist UI
-$navList.animate({
-	'opacity': '1'
-}, 100);
-setTimeout(function() {
-	$('.welcome-ctn').velocity('transition.flipYIn', {
-		duration: 350
-	});
-}, 100);
-setTimeout(function() {
-	$('.articlelist-ctn').slideDown(550);
-	$('.articlelist-item').velocity("transition.slideLeftBigIn", { drag: true });
-}, 300);
-setTimeout(function() {
-	$('.icon-person-show').fadeIn(100);
-}, 700);
-setTimeout(function() {
-	$('.icon-ctn').velocity('transition.slideUpBigIn',{
-		duration: 400
-	});
-	//这里延后文章内容加载
-	$('.article-body').velocity('transition.slideUpBigIn',{
-		duration: 400
-	});
-	//目录加载
-	$('.catelog-ctn').velocity('transition.slideLeftBigIn',{
-		duration: 600
-	});
-}, 950);
-//topnavlist UI
-$('.top-btn-toggle').on('click', function(e) {
-	/*//注意，这种写法下不敏感非450px下的收缩操作,但对非450px下的展开操作敏感
-	if($('.topnav').css('max-height') == "450px"){
-		$('.topnav').animate({'maxHeight':'100px'},500);
-	}else{
-		$('.topnav').animate({'maxHeight':'450px'},500);
-	}*/
-	//注意，这种写法下对非动画完成的所有操作不敏感。不过会将事件加入队列(延后处理)
-	if($topShowFlag) {
-		$('.topnav').animate({
-			'maxHeight': '100px'
-		}, 500);
-		$topShowFlag = false;
-	} else {
-		$('.topnav').animate({
-			'maxHeight': '450px'
-		}, 500);
-		$topShowFlag = true;
-	}
+$('.archives-item-title').on('mouseenter',function(e){
+	var $elem = $(e.target).parents('.archives-item');
+	console.log($elem);
 });
 //目录检测
-var $articleElem = $('.article-body-text');
+var $articleElem = $('.inside-ctn');
 var $articleChildElem = $articleElem.children();
 var hReg = /^h/i;
 var $hCtn = [];
@@ -109,17 +61,13 @@ $(window).scroll(function(e){
 	var $scrollTop = $(window).scrollTop();
 	var $elemTop = $('.catelog-ctn').offset().top;
 	//当顶端接触锁定
-	if(($scrollTop + 20) >= $elemTop){
+	if($scrollTop >= 20){
 		$('.catelog-ctn').css({
-			"position": "fixed",
-			"top": "20px"
+			"top": 20 + $scrollTop-20 + "px",
 		});
-	}
-	//解除锁定
-	if(($scrollTop + 20) <= 225){
+	}else{
 		$('.catelog-ctn').css({
-			"position": "absolute",
-			"top": "225px"
+			"top": "20px",
 		});
 	}
 	//当标题接触浏览器顶端时标红对应条目

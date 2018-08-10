@@ -1,3 +1,20 @@
+$().ready(function(){
+	var canvas = $('canvas');
+	var icon = $('.top-icon');
+	var nav = $('.navbar');
+	setTimeout(function(){
+		icon.velocity('transition.slideUpBigIn', { duration: 500 });
+	},0);
+	setTimeout(function(){
+		canvas.velocity('transition.fadeIn', { duration: 1000 });
+	},700);
+	setTimeout(function(){
+		nav.velocity('transition.slideDownBigIn', { duration: 400 });
+	},800);
+})
+
+
+
 $('.login-label').on('click', function(e) {
 	e = window.event || event;
 	let tar = e.target;

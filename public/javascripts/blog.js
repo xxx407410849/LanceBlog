@@ -38,9 +38,7 @@ $().ready(function() {
 				$($eTextElem).animate({
 					opacity: '1'
 				}, 500);
-				$($articleElem).animate({
-					opacity: '0.9'
-				}, 500);
+				$($articleElem).velocity('transition.slideRightIn', { duration: 500 });
 				$($articleElem).on('mouseenter', function(e) {
 					var $eElem = $(this.firstElementChild);
 					//console.log($(this.firstElementChild));
@@ -53,6 +51,7 @@ $().ready(function() {
 				$($articleElem).on("click", function(e) {
 					var $eElem = $(this)[0].nextElementSibling;
 					if($($eElem).css('max-height') == "0px") {
+						console.log($($eElem));
 						$($eElem).animate({
 							maxHeight: "200px"
 						}, 800);
@@ -67,7 +66,7 @@ $().ready(function() {
 						}, 600);
 					}
 				});
-			}, num * 200 + 800);
+			}, num * 200 + 1150);
 		}(i));
 	}
 	//-----text-show-body UI
@@ -83,29 +82,31 @@ $().ready(function() {
 			outlineWidth: "2px"
 		}, 100, "linear");
 	});
-	$articleShowBtn.on("click", function(e) {});
 
 	//------rightnavlist UI
-	$navList.animate({
-		'opacity': '1'
-	}, 0);
-	setTimeout(function(){
-		$('.welcome-ctn').fadeIn(300);
-	},100);
-	setTimeout(function(){
-		$('.articlelist-ctn').slideDown(600);
-	},400);
-	setTimeout(function(){
-		$('.icon-person-show').fadeIn(100);
-	},800);
-	setTimeout(function(){
-		$('.text-container').animate({
-			'opacity': '1'
-		},200);
-	},600);
-	setTimeout(function(){
-		$('.icon-ctn').fadeIn(300)
-	},1000);
+$navList.animate({
+	'opacity': '1'
+}, 100);
+setTimeout(function() {
+	$('.welcome-ctn').velocity('transition.flipYIn', {
+		duration: 350
+	});
+}, 100);
+setTimeout(function() {
+	$('.articlelist-ctn').slideDown(550);
+	$('.articlelist-item').velocity("transition.slideLeftBigIn", { drag: true });
+}, 300);
+setTimeout(function() {
+	$('.icon-person-show').fadeIn(100);
+}, 700);
+setTimeout(function() {
+	$('.icon-ctn').velocity('transition.slideUpBigIn',{
+		duration: 400
+	});
+	$('.text-container').velocity('transition.fadeIn',{
+		duration: 400
+	});
+}, 950);
 });
 //resize检测
 $(window).resize(function () {
