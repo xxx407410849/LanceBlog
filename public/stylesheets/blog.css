@@ -360,20 +360,15 @@ html {
 }
 
 .welcome-ctn p {
-	border-bottom: 3px solid #F4F4F4;
-	text-align: center;
 	width: 100%;
+	text-align: center;
+	font-size: 14px;
 }
 .welcome-ctn p:first-child {
 	margin-bottom: 15%;
 	font-size: 16px;
 }
 
-.welcome-ctn p {
-	text-align: center;
-	width: 100%;
-	font-size: 14px;
-}
 .articlelist-ctn {
 	width: 90%;
 	margin-top: 10%;
@@ -427,20 +422,9 @@ html {
 	border-right: 3px solid;
 	position: relative;
 	cursor: pointer;
+	transition: border-color ease-in-out 0.3s;
 }
 
-.articlelist-item-active:before {
-	content: "";
-	position: absolute;
-	width: 6px;
-	height: 6px;
-	border-radius: 50%;
-	background-color: #D5D5D5;
-	right: 5%;
-	font-size: 10px;
-	line-height: 2;
-	top: 45%;
-}
 
 .articlelist-item:nth-child(1) {
 	border-color: #D6E9C6;
@@ -468,7 +452,9 @@ html {
 	color: rgba(0, 0, 0, 0.5);
 	box-sizing: border-box;
 }
-
+.articlelist-item span:hover{
+	color: rgba(0, 0, 0, 0.7);
+}
 .articlelist-item span i {
 	font-size: 12px;
 	line-height: 1;
@@ -488,6 +474,10 @@ html {
 	text-align: center;
 	font-size: 13px;
 	background-color: #F1F1F1;
+	cursor: pointer;
+}
+.icon-ctn span:hover{
+	background-color: #F6F6F6;
 }
 
 .icon-person-show {
