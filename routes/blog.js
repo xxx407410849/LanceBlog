@@ -4,13 +4,15 @@ var mongoose = require('mongoose');
 var Post = require('./../models/postmodel');
 var moment = require('moment');
 var path = require('path');
+var numReg = /^[1-9]\d*$/;
 router.get('/',function(req,res){
     res.redirect('/blog/1');
 })
 router.get('/:num',function(req,res){
+    if(!numReg.test(req.params.num))res.redirect('/blog/1');
     var pageNum = req.params.num - 1;
     Post.find({}).count(function(err,count){
-        if(pageNum * 6 >=  count)res.redirect('/');
+        if(pageNum * 6 >=  count)res.redirect('/blog/1');
         this.lastNum = 1;
         if(count%6 == 0){
             this.lastNum = count/6;
