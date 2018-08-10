@@ -12,6 +12,7 @@ var regRouter = require('./routes/reg');
 var postRouter = require('./routes/post');
 var blogRouter = require('./routes/blog');
 var articleRouter = require('./routes/article');
+var archiveRouter = require('./routes/archives')
 var config = require('./config/config');
 var MongoStore = require('connect-mongo')(session);
 var moment = require('moment');
@@ -50,7 +51,7 @@ app.use('/article', articleRouter);
 app.get('/loginout',function(req,res){
   req.session.user = null;
   res.redirect('/');
-})
+});
 app.get('/del',function(req,res){
   if(req.session.user != null && req.session.user.username != "lANcElOTA"){
     res.redirect('/blog')
@@ -68,7 +69,8 @@ app.get('/del',function(req,res){
     res.redirect('/blog')
   }
 }
-})
+});
+app.use('/archives',archiveRouter);
 //set flash
 app.use(function(req,res,next){
 	res.locals.errors = req.flash('error');
