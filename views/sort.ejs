@@ -4,25 +4,15 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-		<link rel="stylesheet" href="/plugin/bootstrap.min.css" />
-		<link rel="stylesheet" type="text/css" href="/stylesheets/article.css" />
-		<link rel="stylesheet" href="/stylesheets/topnav.css" />
-		<link rel="stylesheet" href="/stylesheets/iconfont.css" />
-		<link rel="stylesheet" href="/stylesheets/article-style.css" />
-		<link rel="stylesheet" href="/plugin/github.css" />
-
 	</head>
-
+	<link rel="stylesheet" type="text/css" href="/stylesheets/article.css" />
+	<link rel="stylesheet" href="/stylesheets/topnav.css" />
+	<link rel="stylesheet" href="/stylesheets/iconfont.css" />
+	<link rel="stylesheet" href="/stylesheets/ctn.css" />
+	<link rel="stylesheet" href="/plugin/bootstrap.min.css" />
+	<link rel="stylesheet" href="/stylesheets/sort.css">
 	<body>
-		<%if(user){%>
-    		<%if(user.username == "lANcElOTA"){%>
-        <p>
-            <span><a class="edit" href="/post?id=<%= post._id%>">编辑</a></span>
-            <span><a class="edit" href="/del?id=<%= post._id%>">删除</a></span>
-        </p>
-    		<%}%>
-		<%}%>
-			<div class="topnav">
+		<div class="topnav">
 			<div class="top-title">
 				<span>lANcEbLOG</span>
 			</div>
@@ -50,38 +40,6 @@
 						<span onclick="window.location.href ='/tags'"><i class="iconfont icon-biaoqian"></i>标签</span>
 					</li>
 				</ul>
-			</div>
-		</div>
-		<div class="catelog-ctn">
-		</div>
-		<div class="container">
-		<div class="article-ctn">
-			<div class="article-body">
-				<div class="article-body-ctn">
-					<div class="article-body-title">
-						<h4><%= post.title %></h4>
-						<p>
-							<span><i class="iconfont icon-riqi"></i> <%= post.publishTime %></span>
-							<span>|</span>
-							<span><i class="iconfont icon-guidang"></i>分类:样例</span>
-							<span>|</span>
-							<span><i class="iconfont icon-redupaixu"></i>阅读量:<%= post.viewNum %></span>
-						</p>
-					</div>
-					<hr>
-					<div class="article-body-text">
-						<%- post.article %>
-					</div>
-					<hr>
-					<div class="copyright"><p>版权声明:本文未经原作者同意,禁止转载</p><p>本文作者:lANcElOT</p><p>本文链接</p></div>
-					<hr>
-					<% if(fastViewData.leftLink != null){%>
-					<a class="left-article article-jump" href="/article?id=<%= fastViewData.leftLink%>"><i><</i><%= fastViewData.leftName -%></a>
-					<%}%>
-					<% if(fastViewData.rightLink != null){%>
-					<a class="right-article article-jump" href="/article?id=<%= fastViewData.rightLink%>"><%= fastViewData.rightName -%><i>></i></a>
-					<%}%>
-				</div>
 			</div>
 		</div>
 		<div class="nav-list">
@@ -116,22 +74,34 @@
 			</div>
 			<div class="icon-ctn">
 				<div class="icon-body">
-					<span onclick="window.location.href ='https://github.com/xxx407410849'"><i class="iconfont icon-github"></i>Git</span>
-					<span onclick="window.location.href='tencent://message/?uin=407410849&Site=QQ交谈&Menu=yes'"><i class="iconfont icon-qq"></i>QQ</span>
-					<span onclick="window.location.href='Mailto:407410849@qq.com'"><i class="glyphicon glyphicon-envelope"></i>mail</span>
+					<span><i class="iconfont icon-github"></i>Git</span>
+					<span><i class="iconfont icon-qq"></i>QQ</span>
+					<span><i class="glyphicon glyphicon-envelope"></i>mail</span>
 					<span><i class="iconfont icon-tipoff"></i>lifeline</span>
 				</div>
 			</div>
 		</div>
+		<div class="itembody-ctn">
+			<div class="inside-ctn">
+				<h4>TagCloud</h4>
+				<span>~共计<%=length%>个标签哦~</span>
+				<div class="tag-ctn">
+					<%NumCountItem.forEach(function(item){%>
+						<a class="tag-item" href="/archives?tag=<%=item-%>" style="color: <%= NumCount[item].fontColor %>;outline-color:<%= NumCount[item].fontColor %>;font-size:<%= NumCount[item].fontSize %>;"><%=item-%></a>
+					<%})%>
+
+				</div>
+			</div>
+		</div>
+		<div class="blog-copyright">
+			<p>© 2018 Lancelot</p>
+			<p> lANcEBlog 开源Blog - <a>github</a></p>
+			<p>蜀ICP备18014404号</p>
 		</div>
 	</body>
 	<script type="text/javascript" src="/plugin/jquery-3.1.1.min.js"></script>
-	<script type="text/javascript" src="/plugin/bootstrap.min.js"></script>
-	<script type="text/javascript" src="/plugin/highlight.pack.js"></script>
-	<script type="text/javascript" src="/javascripts/resize.js" ></script>
+	<script type="text/javascript" src="/javascripts/ctn.js"></script>
 	<script type="text/javascript" src="/plugin/velocity.min.js"></script>
 	<script type="text/javascript" src="/plugin/velocity.ui.min.js"></script>
-	<script type="text/javascript" src="/javascripts/article.js"></script>
-	<script>hljs.initHighlightingOnLoad();</script>
-
+	<script type="text/javascript" src="/javascripts/sort.js"></script>
 </html>

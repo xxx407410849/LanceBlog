@@ -26,19 +26,19 @@
 			<div class="top-chooseList">
 				<ul class="articlelist-list">
 					<li class="articlelist-item articlelist-home">
-						<span><i class="iconfont icon-index"></i>首页</span>
+						<span  onclick="window.location.href ='/'"><i class="iconfont icon-index"></i>首页</span>
 					</li>
 					<li class="articlelist-item articlelist-blog">
-						<span><i class="iconfont icon-boke"></i>博客</span>
+						<span onclick="window.location.href ='/blog'"><i class="iconfont icon-boke"></i>博客</span>
 					</li>
 					<li class="articlelist-item articlelist-sort">
-						<span><i class="iconfont icon-leixing"></i>类型</span>
+						<span onclick="window.location.href ='/categories'"><i class="iconfont icon-leixing"></i>类型</span>
 					</li>
 					<li class="articlelist-item articlelist-timesort">
-						<span><i class="iconfont icon-guidang"></i>归档</span>
+						<span onclick="window.location.href ='/archives'"><i class="iconfont icon-guidang"></i>归档</span>
 					</li>
 					<li class="articlelist-item articlelist-tag">
-						<span><i class="iconfont icon-biaoqian"></i>标签</span>
+						<span onclick="window.location.href ='/tags'"><i class="iconfont icon-biaoqian"></i>标签</span>
 					</li>
 				</ul>
 			</div>
@@ -60,13 +60,13 @@
 						<span onclick="window.location.href ='/blog'"><i class="iconfont icon-boke"></i>博客</span>
 					</li>
 					<li class="articlelist-item articlelist-sort">
-						<span><i class="iconfont icon-leixing"></i>类型</span>
+						<span onclick="window.location.href ='/categories'"><i class="iconfont icon-leixing"></i>类型</span>
 					</li>
 					<li class="articlelist-item articlelist-timesort">
-						<span><i class="iconfont icon-guidang"></i>归档</span>
+						<span onclick="window.location.href ='/archives'"><i class="iconfont icon-guidang"></i>归档</span>
 					</li>
 					<li class="articlelist-item articlelist-tag">
-						<span><i class="iconfont icon-biaoqian"></i>标签</span>
+						<span onclick="window.location.href ='/tags'"><i class="iconfont icon-biaoqian"></i>标签</span>
 					</li>
 				</ul>
 			</div>
@@ -83,19 +83,34 @@
 			</div>
 		</div>
 		<div class="itembody-ctn">
-			<div class="catelog-ctn"><p>时间表</p></div>
+			<% if(!isTag) {%>	<div class="catelog-ctn"><p>时间表</p></div>
+			<%}%>
 			<div class="inside-ctn">
+				<% if(isTag) {%>
+				<span class = "archives-header">~(tag:<%=tag-%>)共计<%=count-%>篇日志~</span>
+					<h3><%=tag-%></h3>
+					<% for(var i = 0 ; i < list.length ; i++){%>
+						<article class="archives-item">
+							<p><span class="archives-item-time"><%=list[i].date-%></span><span class="archives-item-title" onclick="window.location.href ='/article?id=<%= list[i].id%>'"><%=list[i].title-%></span></p>
+						</article>
+					<%} %>
+				<% }else{ %>
 				<span class = "archives-header">~共计<%=count-%>篇日志~</span>
-				<p><%-list[0][0].title %></p>
 				<% for(var i = 0 ; i < list.length ; i++) {%>
-					<h3><%=(2018+Math.floor(i/2018)) + "." + (i%12 + 7)-%></h3>
+					<h3><%=(2018+Math.floor(i/2018)) + "." + (i%12 + 8)-%></h3>
 					<% for(var j = 0 ; j < list[i].length ; j++){%>
 						<article class="archives-item">
-							<p><span class="archives-item-time"><%=list[i][j].data-%></span><span class="archives-item-title" onclick="window.location.href ='/article?id=<%= list[i][j].id%>'"><%=list[i][j].title-%></span></p>
+							<p><span class="archives-item-time"><%=list[i][j].date-%></span><span class="archives-item-title" onclick="window.location.href ='/article?id=<%= list[i][j].id%>'"><%=list[i][j].title-%></span></p>
 						</article>
 					<%} %>
 				<% }%>
+				<%}%>
 			</div>
+		</div>
+		<div class="blog-copyright">
+			<p>© 2018 Lancelot</p>
+			<p> lANcEBlog 开源Blog - <a>github</a></p>
+			<p>蜀ICP备18014404号</p>
 		</div>
 	</body>
 	<script type="text/javascript" src="/plugin/jquery-3.1.1.min.js"></script>
