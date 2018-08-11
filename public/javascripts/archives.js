@@ -4,6 +4,7 @@ $('.archives-item-title').on('mouseenter',function(e){
 });
 //目录检测
 var $articleElem = $('.inside-ctn');
+if($('.catelog-ctn').length != 0){
 var $articleChildElem = $articleElem.children();
 var hReg = /^h/i;
 var $hCtn = [];
@@ -131,4 +132,5 @@ function findSetWay(num,$hCtn,$liCtn){
 			$liCtn[i].removeClass('unset');
 		}
 	}
+}
 }

@@ -3,6 +3,7 @@ $().ready(function () {
     if ($availWidth >= 1536) {
         $('html').css('zoom', $availWidth / 1536);
     }
+    $('html').css('visibility','inherit');
     //定位nav-list 使其跟随y轴但不跟随x轴移动 由于margin auto 所以/2
     var $screenWidth = window.innerWidth;
     $('.nav-list').css('left', 195 - ($availWidth - $screenWidth) / 2 + "px");
@@ -33,6 +34,9 @@ setTimeout(function() {
 }, 700);
 setTimeout(function() {
 	$('.icon-ctn').velocity('transition.slideUpBigIn',{
+		duration: 400
+	});
+	$('.inside-ctn').velocity('transition.slideUpBigIn',{
 		duration: 400
 	});
 }, 950);

@@ -1,3 +1,6 @@
+html{
+	visibility: hidden;
+}
 html,body{
 	width: 100%;
 	padding: 0;
@@ -19,8 +22,45 @@ html,body{
 	outline: 6px double #F4F4F4;
 	min-height: 800px;
 }
+@media only screen and (max-width: 1200px) {
+	.nav-list{
+		display: none !important;
+	}
+	.itembody-ctn{
+		width:auto ;
+		left: 0px;
+	}
+	.blog-copyright{
+		padding-left: 0px !important;
+	}
+	.catelog-ctn{
+		display: none;
+	}
+}
 .inside-ctn{
 	height: 100%;
 	min-height: 100px;
 	position: relative;
+	opacity: 0;
+}
+.blog-copyright{
+	text-align: center;
+	padding-left: 180px;
+	margin: 30px 10px;
+	font-size: 12px;
+	bottom: 0;
+}
+.blog-copyright p{
+	color: #AAAAAA;
+	font-family: "arial, helvetica, sans-serif,segoe UI light";
+}
+.blog-copyright a{
+	color: #000000;
+	border-bottom: 1px solid #000000;
+	font-size: 12px;
+	text-decoration: none;
+	cursor: pointer;
+}
+.blog-copyright a:hover{
+	color: #122B40;
 }

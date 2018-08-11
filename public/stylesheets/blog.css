@@ -29,6 +29,9 @@ html {
 		width: auto !important;
 		padding: 0 10% !important;
 	}
+	.blog-copyright{
+		padding-left: 0px !important;
+	}
 }
 
 /* .left-container {

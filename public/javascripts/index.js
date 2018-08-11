@@ -6,7 +6,7 @@ $().ready(function(){
 		icon.velocity('transition.slideUpBigIn', { duration: 500 });
 	},0);
 	setTimeout(function(){
-		canvas.velocity('transition.fadeIn', { duration: 1000 });
+		canvas.velocity('transition.fadeIn', { duration: 500 });
 	},700);
 	setTimeout(function(){
 		nav.velocity('transition.slideDownBigIn', { duration: 400 });

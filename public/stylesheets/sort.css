@@ -1,0 +1,32 @@
+.inside-ctn{
+	vertical-align: middle;
+	text-align: center;
+	font-family: "segoe UI light,arial, helvetica, sans-serif,微软雅黑";
+}
+.inside-ctn h4{
+	margin-top: 70px;
+	padding-bottom: 5px;
+}
+.inside-ctn span{
+	font-size: 13px;
+	display: block;
+	padding-bottom: 40px;
+}
+.tag-ctn a{
+	text-decoration: none;
+	cursor: pointer;
+	transition: all ease-in-out 0.3s; 
+	outline: 5px double;
+	padding: 5px 10px;
+	margin: 10px 10px;
+	display: inline-block;
+}
+.tag-ctn a:hover{
+	outline-color: #269ABC !important;
+	color: #000  !important;
+}
+@media only screen and (max-width: 1200px) {
+	.itembody-ctn{
+		padding: 0;
+	}
+}

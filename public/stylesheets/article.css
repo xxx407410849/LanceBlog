@@ -204,12 +204,15 @@ html,body{
 	height: 100%;
 	background-color: #FFFFFF;
 }
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1200px) {
 	.nav-list{
 		display: none !important;
 	}
 	.article-ctn{
 		width: 100%;
+	}
+	.catelog-ctn{
+		display: none !important;
 	}
 }
 

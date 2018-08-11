@@ -4,7 +4,7 @@
 	display: none;
 	top: 0;
 	left: 0;
-	width: 100%;
+	width: auto;
 	min-height: 100px;
 	background-color: #F5F5F5;
 	border-bottom: 5px solid #FFFFFF;
@@ -41,7 +41,7 @@
 .top-btn-toggle span i{
 	font-size: 32px;
 }
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1200px) {
 	.topnav{
 		display: block;
 	}
