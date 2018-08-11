@@ -12,7 +12,8 @@ var regRouter = require('./routes/reg');
 var postRouter = require('./routes/post');
 var blogRouter = require('./routes/blog');
 var articleRouter = require('./routes/article');
-var archiveRouter = require('./routes/archives')
+var archiveRouter = require('./routes/archives');
+var sortRouter = require('./routes/sort');
 var config = require('./config/config');
 var MongoStore = require('connect-mongo')(session);
 var moment = require('moment');
@@ -71,6 +72,7 @@ app.get('/del',function(req,res){
 }
 });
 app.use('/archives',archiveRouter);
+app.use('/tags',sortRouter);
 //set flash
 app.use(function(req,res,next){
 	res.locals.errors = req.flash('error');
