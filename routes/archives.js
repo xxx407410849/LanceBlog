@@ -6,6 +6,28 @@ var moment = require('moment');
 var path = require('path');
 
 router.get('/',function(req,res,next){
+	if(req.query.tag != null){
+		var tag = req.query.tag;
+		Post.find({"tag":tag}).exec(function(err,data){
+			var list = [];
+			data.forEach(function(item,idx){
+				list.push({
+					date:moment(item.publishTime).format('M-DD'),
+					title: item.title,
+					id: item._id
+				});
+			});
+			res.render('archives',{
+				user: req.session.user,
+            	success: req.flash('success').toString(),
+           	 	error: req.flash('error').toString(),
+            	count: list.length,
+            	list: list,
+            	isTag: true,
+            	tag: tag
+			});
+		});
+	}else{
 	Post.find({}).count(function(err,data){
 		this.countNum = data;
 	});
@@ -23,15 +45,15 @@ router.get('/',function(req,res,next){
 			});
 			list[listNum] = article;
 		});
-		console.log(list[0]);
-		console.log(list[0][0].title);
 		res.render('archives',{
 			user: req.session.user,
             success: req.flash('success').toString(),
             error: req.flash('error').toString(),
             count: countNum,
-            list: list
+            list: list,
+            isTag: false
 		});
 	});
+}
 });
 module.exports = router;
