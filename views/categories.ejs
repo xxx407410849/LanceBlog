@@ -9,9 +9,8 @@
 	<link rel="stylesheet" href="/stylesheets/topnav.css" />
 	<link rel="stylesheet" href="/stylesheets/iconfont.css" />
 	<link rel="stylesheet" href="/stylesheets/ctn.css" />
-	<link rel="stylesheet" href="/stylesheets/archives.css">
+	<link rel="stylesheet" href="/stylesheets/categories.css">
 	<link rel="stylesheet" href="/plugin/bootstrap.min.css" />
-
 	<body>
 		<div class="topnav">
 			<div class="top-title">
@@ -75,44 +74,20 @@
 			</div>
 			<div class="icon-ctn">
 				<div class="icon-body">
-					<span onclick="window.location.href ='https://github.com/xxx407410849'"><i class="iconfont icon-github"></i>Git</span>
-					<span onclick="window.location.href='tencent://message/?uin=407410849&Site=QQ交谈&Menu=yes'"><i class="iconfont icon-qq"></i>QQ</span>
-					<span onclick="window.location.href='Mailto:407410849@qq.com'"><i class="glyphicon glyphicon-envelope"></i>mail</span>
+					<span><i class="iconfont icon-github"></i>Git</span>
+					<span><i class="iconfont icon-qq"></i>QQ</span>
+					<span><i class="glyphicon glyphicon-envelope"></i>mail</span>
 					<span><i class="iconfont icon-tipoff"></i>lifeline</span>
 				</div>
 			</div>
 		</div>
 		<div class="itembody-ctn">
-			<% if(!isTag && !isTategory) {%>	<div class="catelog-ctn"><p>时间表</p></div>
-			<%}%>
 			<div class="inside-ctn">
-				<% if(isTag && !isTategory) {%>
-				<span class = "archives-header">~(tag:<%=tag-%>)共计<%=count-%>篇日志~</span>
-					<h3><%=tag-%></h3>
-					<% for(var i = 0 ; i < list.length ; i++){%>
-						<article class="archives-item">
-							<p><span class="archives-item-time"><%=list[i].date-%></span><span class="archives-item-title" onclick="window.location.href ='/article?id=<%= list[i].id%>'"><%=list[i].title-%></span></p>
-						</article>
-					<%} %>
-				<% }else if(!isTag && !isTategory){ %>
-				<span class = "archives-header">~共计<%=count-%>篇日志~</span>
-				<% for(var i = 0 ; i < list.length ; i++) {%>
-					<h3><%=(2018+Math.floor(i/2018)) + "." + (i%12 + 8)-%></h3>
-					<% for(var j = 0 ; j < list[i].length ; j++){%>
-						<article class="archives-item">
-							<p><span class="archives-item-time"><%=list[i][j].date-%></span><span class="archives-item-title" onclick="window.location.href ='/article?id=<%= list[i][j].id%>'"><%=list[i][j].title-%></span></p>
-						</article>
-					<%} %>
-				<% }%>
-				<%}else{%>
-				<span class = "archives-header">~(category:<%=category-%>)共计<%=count-%>篇日志~</span>
-					<h3><%=category-%></h3>
-					<% for(var i = 0 ; i < list.length ; i++){%>
-						<article class="archives-item">
-							<p><span class="archives-item-time"><%=list[i].date-%></span><span class="archives-item-title" onclick="window.location.href ='/article?id=<%= list[i].id%>'"><%=list[i].title-%></span></p>
-						</article>
-					<%} %>
-				<%}%>
+				<h4>分类</h4>
+				<span class="categories-num">~共<%=length-%>个条目噢~</span>
+				<%listItem.forEach(function(item){%>
+					<a href="/archives?type=<%=item-%>"><%=item-%>(<%=list[item]-%>)</a>
+				<%})%>
 			</div>
 		</div>
 		<div class="blog-copyright">
@@ -124,6 +99,5 @@
 	<script type="text/javascript" src="/plugin/jquery-3.1.1.min.js"></script>
 	<script type="text/javascript" src="/javascripts/ctn.js"></script>
 	<script type="text/javascript" src="/plugin/velocity.min.js"></script>
-	<script type="text/javascript" src="/plugin/velocity.ui.min.js"></script>
-	<script type="text/javascript" src="/javascripts/archives.js"></script>
+	<script type="text/javascript" src="/plugin/velocity.ui.min.js"></script>	
 </html>
