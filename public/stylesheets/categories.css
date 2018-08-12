@@ -1,0 +1,40 @@
+.inside-ctn{
+	font-family: "segoe UI light,arial, helvetica, sans-serif,微软雅黑";
+	margin: 60px 0px 0px 0px;
+	text-align: center;
+}
+.inside-ctn h4{
+	margin-top: 10px;
+	font-weight: 200;
+	padding-top: 20px;
+}
+.categories-num{
+	font-size: 12px;
+	line-height: 2;
+	margin-bottom: 40px;
+	display: block;
+}
+.inside-ctn a{
+	display: list-item;
+	text-align: left;
+	font-size: 13px;
+	padding: 5px 0;
+	color: #555;
+	text-decoration: none;
+	cursor: pointer;
+	border-bottom: dashed 1px #555;
+	border-left: dashed 1px #555;
+	border-top: 1px dashed #555;
+	padding-left: 20px;
+	margin: 10px 0px;
+	transition: all ease-in-out 0.3s;
+	list-style: circle inside ;
+}
+.inside-ctn a:hover{
+	text-decoration: none;
+	color: #111;
+	border-style: solid;
+	border-color: #111;
+	border-right: 5px solid #F1F1F1;
+	list-style: disc inside;
+}
