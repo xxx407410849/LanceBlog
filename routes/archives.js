@@ -24,9 +24,32 @@ router.get('/',function(req,res,next){
             	count: list.length,
             	list: list,
             	isTag: true,
+            	isTategory: false,
             	tag: tag
 			});
 		});
+	}else if(req.query.type != null){
+		var type = req.query.type;
+		Post.find({"type":type}).exec(function(err,data){
+			var list = [];
+			data.forEach(function(item,idx){
+				list.push({
+					date:moment(item.publishTime).format('M-DD'),
+					id: item._id,
+					title: item.title
+				});
+			});
+			res.render('archives',{
+				user: req.session.user,
+            	success: req.flash('success').toString(),
+           	 	error: req.flash('error').toString(),
+            	count: list.length,
+            	list: list,
+            	isTag: false,
+            	isTategory: true,
+            	category: type
+			})
+		})
 	}else{
 	Post.find({}).count(function(err,data){
 		this.countNum = data;
@@ -51,7 +74,8 @@ router.get('/',function(req,res,next){
             error: req.flash('error').toString(),
             count: countNum,
             list: list,
-            isTag: false
+            isTag: false,
+            isTategory: false
 		});
 	});
 }
