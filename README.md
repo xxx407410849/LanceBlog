@@ -9,8 +9,8 @@
 - Jquery + Bootstrap
 
 # 博客索引
-[归类](http://www.404lancelot.cn/archives)
-[标签](http://www.404lancelot.cn/tags)
+- [归类](http://www.404lancelot.cn/archives)
+- [标签](http://www.404lancelot.cn/tags)
 # 博客简介
 - 本博客由Lancelot个人开发，不基于Hexo或者WordPress等常用框架(2018/7/12)
 - 本博客富文本编辑器由Lancelot个人开发 [Leditor](https://github.com/xxx407410849/Leditor)(2018/7/30)
