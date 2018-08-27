@@ -214,6 +214,9 @@ html,body{
 	.catelog-ctn{
 		display: none !important;
 	}
+	.article-body{
+		width: 100%;
+	}
 }
 
 .container{
